@@ -1,0 +1,321 @@
+<!--
+=========================================================
+Material Dashboard - v2.1.2
+=========================================================
+
+Product Page: https://www.creative-tim.com/product/material-dashboard
+Copyright 2020 Creative Tim (https://www.creative-tim.com)
+Coded by Creative Tim
+
+=========================================================
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8"/>
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>
+    Material Dashboard by Creative Tim
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport'/>
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+</head>
+
+<body class="">
+<div class="wrapper ">
+  <div class="sidebar" data-color="purple" data-background-color="white" data-image="assets/img/sidebar-1.jpg">
+    <!--
+      Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+      Tip 2: you can also add an image using data-image tag
+  -->
+    <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+      DII
+    </a></div>
+    <div class="sidebar-wrapper">
+      <ul class="nav">
+        <li class="nav-item active  ">
+          <a class="nav-link" href="./dashboard.html">
+            <i class="material-icons">dashboard</i>
+            <p>TABLEAU DE BORD</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="#">
+            <i class="material-icons">person</i>
+            <p>Mon Profil</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="#">
+            <i class="material-icons">content_paste</i>
+            <p>Mes Demandes</p>
+          </a>
+        </li>
+        <!--<li class="nav-item ">
+          <a class="nav-link" href="./typography.html">
+            <i class="material-icons">library_books</i>
+            <p>Typography</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="./icons.html">
+            <i class="material-icons">bubble_chart</i>
+            <p>Icons</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="./map.html">
+            <i class="material-icons">location_ons</i>
+            <p>Maps</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="./notifications.html">
+            <i class="material-icons">notifications</i>
+            <p>Notifications</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="./rtl.html">
+            <i class="material-icons">language</i>
+            <p>RTL Support</p>
+          </a>
+        </li>-->
+
+      </ul>
+    </div>
+  </div>
+  <div class="main-panel">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+      <div class="container-fluid">
+        <div class="navbar-wrapper">
+          <h2><strong>Tableau de Bord</strong></h2>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end">
+
+          <ul class="navbar-nav">
+            <li>
+              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>person</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="logout()">
+                  <mat-icon>logout</mat-icon>
+                  <span>Déconnexion</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>lock</mat-icon>
+                  <span>Modifier Mot De Passe</span>
+                </button>
+              </mat-menu>
+
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-header card-header-info card-header-icon">
+                <div class="card-icon">
+                  <i class="material-icons">content_copy</i>
+                </div>
+                <h4 class="card-title">Soumises</h4>
+                <h3 class="card-title">{{soumise}}</h3>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-header card-header-danger card-header-icon">
+                <div class="card-icon">
+                  <i class="material-icons">edit</i>
+                </div>
+                <h4 class="card-title">En Brouillon</h4>
+                <h3 class="card-title">{{brouillon}}</h3>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-header card-header-warning card-header-icon">
+                <div class="card-icon">
+                  <i class="material-icons">payment</i>
+                </div>
+                <h4 class="card-title">A Payer</h4>
+                <h3 class="card-title">{{impayer}}</h3>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-header card-header-success card-header-icon">
+                <div class="card-icon">
+                  <i class="material-icons">done</i>
+                </div>
+                <h4 class="card-title">Validées</h4>
+                <h3 class="card-title">{{terminer}}</h3>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="content">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-primary">
+                      <h4 class="card-title ">Mes Demandes</h4>
+                      <!--<p class="card-category"> Here is a subtitle for this table</p>-->
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <div class="example-header">
+                          <mat-form-field>
+                            <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+                          </mat-form-field>
+                        </div>
+
+                        <div class="example-container mat-elevation-z8">
+
+                          <mat-table [dataSource]="dataSource" matSort>
+
+                            <!-- ID Column -->
+                            <ng-container matColumnDef="Numéro DII">
+                              <mat-header-cell *matHeaderCellDef mat-sort-header>Numéro DII</mat-header-cell>
+                              <mat-cell *matCellDef="let row"> {{row.numero}} </mat-cell>
+                            </ng-container>
+
+                            <!-- Progress Column -->
+                            <ng-container matColumnDef="Code PPM">
+                              <mat-header-cell *matHeaderCellDef mat-sort-header>Code PPM</mat-header-cell>
+                              <mat-cell *matCellDef="let row"> {{row.codeppm}}</mat-cell>
+                            </ng-container>
+
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="Marchandise">
+                              <mat-header-cell *matHeaderCellDef mat-sort-header>Marchandise</mat-header-cell>
+                              <mat-cell *matCellDef="let row"> {{row.marchandise.length}} </mat-cell>
+                            </ng-container>
+
+                            <!-- Color Column -->
+                            <ng-container matColumnDef="Statut">
+                              <mat-header-cell *matHeaderCellDef mat-sort-header> Statut</mat-header-cell>
+                              <mat-cell *matCellDef="let row" [style.color]="row.color">
+                                <strong *ngIf="row.status==2" style="color: #43a047">Terminer</strong>
+                                <strong *ngIf="row.status==1" style="color: #fb8c00">A Payer</strong>
+                                <strong *ngIf="row.status==0" style="color: #e53935">Brouillon</strong>
+                              </mat-cell>
+                            </ng-container>
+                            <ng-container matColumnDef="Date Création">
+                              <mat-header-cell *matHeaderCellDef mat-sort-header> Date Création</mat-header-cell>
+                              <mat-cell *matCellDef="let row"> {{row.dateCreation}} </mat-cell>
+                            </ng-container>
+
+                            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                            <mat-row *matRowDef="let row; columns: displayedColumns;">
+                            </mat-row>
+                          </mat-table>
+
+                          <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+                        </div>
+
+
+                        <!-- Copyright 2018 Google Inc. All Rights Reserved.
+                            Use of this source code is governed by an MIT-style license that
+                            can be found in the LICENSE file at http://angular.io/license -->
+
+
+                        <!--
+                                                <table class="table">
+                                                  <thead class=" text-primary">
+                                                  <th>
+                                                    Numero DII
+                                                  </th>
+                                                  <th>
+                                                    Code PPM
+                                                  </th>
+                                                  <th>
+                                                    Marchandise
+                                                  </th>
+                                                  <th>
+                                                    Date Création
+                                                  </th>
+                                                  <th>
+                                                    Action
+                                                  </th>
+                                                  </thead>
+                                                  <tbody>
+                                                  <tr>
+                                                    <td>
+                                                      1
+                                                    </td>
+                                                    <td>
+                                                      Dakota Rice
+                                                    </td>
+                                                    <td>
+                                                      Niger
+                                                    </td>
+                                                    <td>
+                                                      Oud-Turnhout
+                                                    </td>
+                                                    <td class="text-primary">
+                                                      $36,738
+                                                    </td>
+                                                  </tr>
+                                                  </tbody>
+                                                </table>
+                        -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>

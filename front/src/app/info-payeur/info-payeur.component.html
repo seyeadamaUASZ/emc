@@ -1,0 +1,36 @@
+<div class="container mt-4 centrer " >
+    <h1 class="container">Vérification du Cmc</h1>
+    <form class="" [formGroup]="factureForm" (ngSubmit)="onSubmit()">
+
+        <h2>Veuillez vérifier avant de procéder au paiement</h2>
+        <div class="row "><br>
+            <div class="col-12 justify-content">
+                <mat-form-field appearance="fill" class="">
+                    <mat-label>IdFacture</mat-label>
+                    <input matInput formControlName="idFacture" #myInput required>
+                </mat-form-field><br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Nom</mat-label>
+                    <input matInput formControlName="nomPayeur">
+                </mat-form-field><br>
+                <mat-form-field appearance="fill">
+                    <mat-label>Prénom</mat-label>
+                    <input matInput formControlName="prenomPayeur">
+                </mat-form-field><br>
+                <mat-form-field appearance="fill" class="">
+                    <mat-label>Montant</mat-label>
+                    <input matInput formControlName="montantFacture" required>
+                </mat-form-field><br>
+            </div>
+
+        </div>
+        <div align="center" style="margin-top: 30px;">
+            <button [disabled]="!factureForm.valid"  class="container-fluid mat-form-field" type="button " mat-raised-button
+                color="primary" style="background-color: #297F87; ">
+                Payer
+            </button>
+
+        </div>
+
+    </form>
+</div>

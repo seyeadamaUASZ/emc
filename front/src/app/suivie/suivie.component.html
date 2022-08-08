@@ -1,0 +1,134 @@
+<div class="container" novalidate align="center">
+  <div mat-dialog-title class="dialog-title">
+    <h2 style="font-size: 20px; color: #FFB740 !important;">Suivi de la DII</h2>
+    <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+      <mat-icon style="font-size: 20px; color: #FFB740;">close</mat-icon>
+    </button>
+  </div>
+
+  <div class="card">
+    <form class="form" [formGroup]="suivieFormulaire">
+      <div class="row g-3 align-items-center">
+        <div class="col-4">
+          <mat-card style="padding: 0px; margin:0px">
+            <div style="background-color:#d8d8d8;">
+              <mat-card-header style="height: 6.696428571428571vh;"
+                               class="d-flex flex-row-reverse justify-content-around">
+                <mat-icon style="margin-top: 2vh;">list</mat-icon>
+                <mat-card-title style="margin-top: 2vh; text-align: center;">Numéro de la DII</mat-card-title>
+              </mat-card-header>
+            </div>
+            <mat-card-content>
+              <h2 style="margin-top: 5vh;">{{data.numeroDii}}</h2>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="col-4">
+          <mat-card style="padding: 0px; margin:0px">
+            <div style="background-color:#d8d8d8;">
+              <mat-card-header style="height: 6.696428571428571vh;"
+                               class="d-flex flex-row-reverse justify-content-around">
+                <mat-icon style="margin-top: 2vh;">event</mat-icon>
+                <mat-card-title style="margin-top: 2vh; text-align: center;">Date de création</mat-card-title>
+              </mat-card-header>
+            </div>
+            <mat-card-content>
+              <h2 style="margin-top: 5vh;">{{data.dateCreation}}</h2>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="col-4">
+          <mat-card style="padding: 0px; margin:0px">
+            <div style="background-color:#d8d8d8;">
+              <mat-card-header style="height: 6.696428571428571vh;"
+                               class="d-flex flex-row-reverse justify-content-around">
+                <mat-icon style="margin-top: 2vh;">autorenew</mat-icon>
+                <mat-card-title style="margin-top: 2vh;">Statut de la DII</mat-card-title>
+              </mat-card-header>
+            </div>
+            <mat-card-content>
+              <h2 style="margin-top: 5vh;">{{data.statusText}}</h2>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <!--<div class="col-12">
+          <input type="text" formControlName="NumeroDii" readonly="readonly" class="form-control">
+        </div>
+        <div class="col-12">
+          <input type="text" formControlName="DateCreation" readonly="readonly" class="form-control">
+        </div>
+        <div class="col-12">
+          <input type="text" formControlName="Status" readonly="readonly" class="form-control">
+        </div>-->
+
+        <div class="col-4 d-flex justify-content-start">
+          <button *ngIf="suivieFormulaire.value.statusButton==1" type="button" style="border-radius: 35px" class="btn btn-outline-warning"
+                  (click)="openDialogPrevisualiser()">Prévisualiser
+          </button>
+          <button *ngIf="suivieFormulaire.value.statusButton==0" type="button" style="border-radius: 35px"  class="btn btn-outline-warning"
+                  (click)="openDialogPrevisualiser()">Prévisualiser
+          </button>
+          <button *ngIf="suivieFormulaire.value.statusButton==2" type="button" style="border-radius: 35px"  class="btn btn-outline-warning"
+                  (click)="openDialogTelecharger()">Télécharger
+          </button>
+        </div>
+        <div class="col-4"></div>
+        <div class="col-4 d-flex justify-content-end">
+          <button *ngIf="suivieFormulaire.value.statusButton==1"
+                  (click)="actionPayer()" style="border-radius: 35px "  type="button" class="btn btn-outline-warning">Payer
+          </button>
+          <button *ngIf="suivieFormulaire.value.statusButton==0"  style="border-radius: 35px "  type="submit"
+                  class="btn btn-outline-warning">
+            Reprendre
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<!--<div class="container" novalidate align="center">
+  <div class="card">
+    <div class="card-header">
+      <h2>Suivi de la Dii</h2>
+    </div>
+    <form class="form" [formGroup]="suivieFormulaire" (submit)="showDemande()">
+      <div class="row g-3 align-items-center">
+        <div class="col-12">
+          <input type="text" formControlName="NumeroDii" readonly="readonly" class="form-control">
+          <input type="hidden" formControlName="numero" readonly="readonly" class="form-control">
+        </div>
+        <div class="col-12">
+          <input type="text" formControlName="DateCreation" readonly="readonly" class="form-control">
+        </div>
+        <div class="col-12">
+          <input type="text" formControlName="Status" readonly="readonly" class="form-control">
+        </div>
+        <div class="col-6">
+          <button *ngIf="suivieFormulaire.value.statusButton==1" type="button" class="btn btn-outline-warning"
+                  (click)="openDialogPrevisualiser()">Prévisualiser
+          </button>
+          <button *ngIf="suivieFormulaire.value.statusButton==0" type="button" class="btn btn-outline-warning"
+                  (click)="openDialogPrevisualiser()">Prévisualiser
+          </button>
+          <button *ngIf="suivieFormulaire.value.statusButton==2" type="button" class="btn btn-outline-warning"
+                  (click)="openDialogTelecharger()">Télécharger
+          </button>
+        </div>
+        <div class="col-6">
+          <button *ngIf="suivieFormulaire.value.statusButton==1"
+                  (click)="actionPayer()" type="button" class="btn btn-outline-warning">Payer
+          </button>
+          <button *ngIf="suivieFormulaire.value.statusButton==0" type="submit"
+                  class="btn btn-outline-warning">
+            Reprendre
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>-->
+

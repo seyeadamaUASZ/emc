@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Cmc</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" src="assets/web/assets/mobirise-icons2/mobirise2.svg">
+
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/parallax/jarallax.css">
+  <link rel="stylesheet" href="assets/animatecss/animate.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap"
+    as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap">
+  </noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
+  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/chat.css">
+    <link rel="stylesheet" href="assets/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body class="mat-typography">
+  <app-root></app-root>
+   
+  <!-- CHAT BAR BLOCK -->
+  <div class="chat-bar-collapsible">
+    <button id="chat-button" type="button" class="collapsible">Samba!! votre assistance
+      &nbsp; &nbsp; &nbsp; &nbsp;
+        <i id="chat-icon" style="color: #fff;" class="fa fa-user"></i>
+    </button>
+
+    <div class="content">
+        <div class="full-chat-block">
+            <!-- Message Container -->
+            <div class="outer-container">
+                <div class="chat-container">
+                    <!-- Messages -->
+                    <div id="chatbox">
+                        <h5 id="chat-timestamp"></h5>
+                        <p id="botStarterMessage" class="botText"><span>Chargement...</span></p>
+                    </div>
+
+                    <!-- User input box -->
+                    <div class="chat-bar-input-block">
+                        <div id="userInput">
+                            <input id="textInput" class="input-box" type="text" name="msg"
+                                placeholder="Entrer votre message">
+                            <p></p>
+                        </div>
+
+                        <div class="chat-bar-icons">
+                            <!-- <i id="chat-icon" style="color: crimson;" class="fa fa-fw fa-heart"
+                                onclick="heartButton()"></i> -->
+                            <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send"
+                                onclick="sendButton()"></i>
+                        </div>
+                    </div>
+
+                    <div id="chat-bar-bottom">
+                        <p></p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- end html -->
+
+
+
+  <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/parallax/jarallax.js"></script>
+  <script src="assets/smoothscroll/smooth-scroll.js"></script>
+  <script src="assets/ytplayer/index.js"></script>
+  <script src="assets/dropdown/js/navbar-dropdown.js"></script>
+  <script src="assets/theme/js/script.js"></script>
+  <script src="assets/formoid/formoid.min.js"></script>
+
+ <!----debut js chatbot-->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    function getBotResponse(input) {
+    //CMC (certificat de mise en circulation)
+    if (input === "comment faire le suivi de mon CMC") {
+        return "Pour faire le suivi, il faut soumettre la demande et faire le paiement au service\n"+
+        "en indiquant le numéro du dossier et ensuite le numéro de chassi sur la zone de\n"+
+        "recherche";
+    } else if (input === "combien le paiement") {
+        return "Le paiement est à 10000FCFA";
+    } else if (input === "à quoi sert la plateforme") {
+        return "La plateforme vous permet d'aller plus vite sur le suivi de votre cmc";
+    }else if(input ==="combien la création"){
+      return "c'est à 10000FCFA";
+    }else if(input ==="comment ça fonctionne"){
+      return "la plateforme permet de faire le suivi en vous donnant \n"+
+      "en temps réel le traitement du certificat de mise en circulation du véhicule";
+    }else if(input.includes('combien')){
+      return "Vous devez vous acquiter des droits de paiement de 10000FCFA";
+    }
+    else if(input.includes("suivi")){
+      return "Pour faire le suivi, il faut soumettre la demande et faire le paiement au service\n"+
+        "en indiquant le numéro du dossier et ensuite le numéro de chassi sur la zone de\n"+
+        "recherche";
+    }
+    else if(input.includes("prix")){
+      return "Le paiement est fixé à 10000FCFA";
+    }
+
+    // Simple responses
+    if (input == "bonjour") {
+        return "Bonjour vous aussi comment vous allez! En quoi puis je vous aider";
+    } else if (input == "au revoir" || input == "merci") {
+        return "Au revoir à bientôt!";
+    } else {
+        return "Veuillez reformuler la question svp!";
+    }
+}
+
+var coll = document.getElementsByClassName("collapsible");
+
+for (let i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+
+        var content = this.nextElementSibling;
+
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+
+    });
+}
+
+function getTime() {
+    let today = new Date();
+    hours = today.getHours();
+    minutes = today.getMinutes();
+
+    if (hours < 10) {
+        hours = "0" + hours;
+    }
+
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
+
+    let time = hours + ":" + minutes;
+    return time;
+}
+
+// Gets the first message
+function firstBotMessage() {
+    let firstMessage = "Bonjour,En quoi puis je vous aider?"
+    document.getElementById("botStarterMessage").innerHTML = '<p class="botText"><span>' + firstMessage + '</span></p>';
+
+    let time = getTime();
+
+    $("#chat-timestamp").append(time);
+    document.getElementById("userInput").scrollIntoView(false);
+}
+
+firstBotMessage();
+
+// Retrieves the response
+function getHardResponse(userText) {
+    let botResponse = getBotResponse(userText);
+    let botHtml = '<p class="botText"><span>' + botResponse + '</span></p>';
+    $("#chatbox").append(botHtml);
+
+    document.getElementById("chat-bar-bottom").scrollIntoView(true);
+}
+
+//Gets the text text from the input box and processes it
+function getResponse() {
+    let userText = $("#textInput").val();
+
+    if (userText == "") {
+        userText = "I love Code Palace!";
+    }
+
+    let userHtml = '<p class="userText"><span>' + userText + '</span></p>';
+
+    $("#textInput").val("");
+    $("#chatbox").append(userHtml);
+    document.getElementById("chat-bar-bottom").scrollIntoView(true);
+
+    setTimeout(() => {
+        getHardResponse(userText);
+    }, 1000)
+
+}
+
+// Handles sending text via button clicks
+function buttonSendText(sampleText) {
+    let userHtml = '<p class="userText"><span>' + sampleText + '</span></p>';
+
+    $("#textInput").val("");
+    $("#chatbox").append("Bonjour ")
+    $("#chatbox").append(userHtml);
+    document.getElementById("chat-bar-bottom").scrollIntoView(true);
+
+    //Uncomment this if you want the bot to respond to this buttonSendText event
+    // setTimeout(() => {
+    //     getHardResponse(sampleText);
+    // }, 1000)
+}
+
+function sendButton() {
+    getResponse();
+}
+
+function heartButton() {
+    buttonSendText("Heart clicked!")
+}
+
+// Press enter to send a message
+$("#textInput").keypress(function (e) {
+    if (e.which == 13) {
+        getResponse();
+    }
+});
+  </script>
+
+  <!----fin js chatbot-->
+
+  <input name="animation" type="hidden">
+</body>
+
+</html>
